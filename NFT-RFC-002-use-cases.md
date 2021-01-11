@@ -152,11 +152,11 @@ Together, these standards will unlock the potential for NFTs and their metadata 
 
 #### NFTs
 
-[CryptoKitties](https://www.cryptokitties.co/) is the first widely-known example of Non-Fungible Tokens. When this launched in November 2017, it introduced a mechanism for creating and owning unique digital resources that people desire as collectibles. This was based on a technical specification \([ERC-712](https://github.com/ethereum/EIPs/issues/721)\) for the minimum interface that a smart contract on the Ethereum network must implement to allow unique tokens to be created, managed, owned, and traded. This specification does not mandate a standard for token metadata or restrict adding supplemental functions.
+[CryptoKitties](https://www.cryptokitties.co/) is the first widely-known example of Non-Fungible Tokens. When this launched in November 2017, it introduced a mechanism for creating and owning unique digital resources that people desire as collectibles. This was based on a technical specification \([ERC-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md) for the minimum interface that a smart contract on the Ethereum network must implement to allow unique tokens to be created, managed, owned, and traded. This specification does not mandate a standard for token metadata or restrict adding supplemental functions.
 
-Subsequently a number of new ethereum network specifications have been proposed to add supplemental functions and enhancements to the ERC-712 standard. These include methods for combining fungible and non-fungible tokens in multi-token transactions \([ERC-1155](https://github.com/ethereum/EIPs/issues/1155)\), to delegate ownership and control \([ERC-994](https://github.com/ethereum/EIPs/issues/994)\), compose NFTs into hierarchical ownership schemes \([ERC-998](https://github.com/ethereum/EIPs/issues/998)\), for fractional ownership of NFTs \([ERC-1633](https://github.com/ethereum/EIPs/pull/1633)\) and other innovations.
+Subsequently a number of new ethereum network specifications have been proposed to add supplemental functions and enhancements to the ERC-721 standard. These include methods for combining fungible and non-fungible tokens in multi-token transactions \([ERC-1155](https://github.com/ethereum/EIPs/issues/1155)\), to delegate ownership and control \([ERC-994](https://github.com/ethereum/EIPs/issues/994)\), compose NFTs into hierarchical ownership schemes \([ERC-998](https://github.com/ethereum/EIPs/issues/998)\), for fractional ownership of NFTs \([ERC-1633](https://github.com/ethereum/EIPs/pull/1633)\) and other innovations.
 
-Although there is no single standard for NFTs across different blockchain networks, ERC-712 provides the canonical definition for an NFT interface standard.
+Although there is no single standard for NFTs across different blockchain networks, ERC-721 provides the canonical definition for an NFT interface standard.
 
 ####  Metadata
 
@@ -305,25 +305,24 @@ The requirements for Interchain NFTs include that these should be:
 6. **Lockable** to conditionally stop changes in the token metadata.
 7. **Immutable** to never permit changes in the token metadata.
 8. **Mutable** to unconditionally permit changes in the token metadata.
-9. **Re-fungible** to mint fungible tokens which represent interchangeable units of information.
-10. **Divisible** to allow fractional ownership of non-fungible parts.
-11. **Composible** to be owned by another non-fungible token and added to that token’s set or to produce other novel combinatorial forms.
-12. **Conditional** to only permit changes or transfers when specific conditions have been met.
+9. **Fractional** to mint fungible tokens which represent fractional ownership of non-fungible parts.
+10. **Composible** to be owned by another non-fungible token and added to that token’s set or to produce other novel combinatorial forms.
+11. **Conditional** to only permit changes or transfers when specific conditions have been met.
 
-|  | **Requirements** |  |  |  |  |  |  |  |  |  |  |  |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Use-Case** | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **10** | **11** | **12** |
-| Collectible Tokens | X |  | X | X |  | X | X | X | X |  |  |  |
-| Financing Tokens | X | X | X | X | X | X | X | X | X | X | X | X |
-| Impact Tokens | X | X | X | X | X | X | X |  | X | X | X | X |
-| Access Tokens | X | X | X | X | X | X | X | X | X | X | X | X |
-| Art Tokens | X |  | X | X |  |  | X | X | X | X | X | X |
-| Physical Property Tokens | X | X | X | X | X | X | X | X | X | X | X | X |
-| Data Tokens | X | X | X | X | X | X | X | X | X | X | X | X |
-| Credential Tokens | X | X |  | X | X |  | X |  |  |  | X | X |
-| Capability Tokens |  |  |  |  |  |  |  |  |  |  |  |  |
-| Commodity Tokens | X | X | X | X | X | X | X | X | X | X | X | X |
-|  |  |  |  |  |  |  |  |  |  |  |  |  |
+|  | **Requirements** |  |  |  |  |  |  |  |  |  |  |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Use-Case** | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **10** | **11** |
+| Collectible Tokens | X |  | X | X |  | X | X | X | X |  |  |
+| Financing Tokens | X | X | X | X | X | X | X | X | X | X | X |
+| Impact Tokens | X | X | X | X | X | X | X |  | X | X | X |
+| Access Tokens | X | X | X | X | X | X | X | X | X | X | X |
+| Art Tokens | X |  | X | X |  |  | X | X | X | X | X |
+| Physical Property Tokens | X | X | X | X | X | X | X | X | X | X | X |
+| Data Tokens | X | X | X | X | X | X | X | X | X | X | X |
+| Credential Tokens | X | X |  | X | X |  | X |  |  | X | X |
+| Capability Tokens |  |  |  |  |  |  |  |  |  |  |  |
+| Commodity Tokens | X | X | X | X | X | X | X | X | X | X | X |
+|  |  |  |  |  |  |  |  |  |  |  |  |
 
 ## 4. User Stories
 
@@ -332,10 +331,60 @@ Projects are invited to describe their use-case in the format of a short User St
 ### 4.1 Quality Carbon Credits
 
 #### Context
+As pressure mounts to balance the yearly global carbon budget due to increasing risk to life, property and markets due to climate related 
+
+Carbon accounting, markets and politics.
+Long lobbied by scientists and citizen groups, corporations and governments are finally taking climate related risk seriously.  As voluntary and compliance markets for carbon, corporate science based reporting, emissions taxes and other mechanisms become more common, the demands for carbon accounting integrity become more challenging to meet.  
+
+Carbon accounting and science:
+Carbon accounting should follow the natural carbon cycle. Emissions (respiration) and sequestration (inspiration). The global carbon budget must not simply be brought to net zero as quickly as possible, it must also achieve a carbon negative balance for some time to bring us back to pre-industrial levels if we want to guarantee conditions conducive to biosphere functioning as humans have evolved.  
+
+Carbon accounting and markets.
+There are three major types of carbon credits.  
+Avoided emissions (a factory spent money to increase efficiency and can claim credits as they reduce emissions).
+Renewable Energy Credits (a city shifts from fossil fuel based energy to renewable energy and claims credits associated with the quantification of carbon emissions reduction)
+Natural carbon or “living carbon” which is incapsulated by “terraculture” and “mariculture” (AFOLU: Agriculture, Forestry and other Land Use) and Blue Carbon in which sequestration and/or maintenance of carbon stocks in living systems is monitored and quantified.
+
+Living Carbon User Story:
+
+User Story One: Interchain credit transfer
+
+Acme Ag and their ecosystem of farmers, processors, and logistics providers, would like to meet the ambitious goals of carbon neutrality by 2030, and even explore if providing carbon credits to industries that cannot hope to achieve carbon negative operations (such as the energy sector), could become a long term profit center.
+
+Acme ag wants to be able to have accurate carbon reporting internally, as well as participate in markets to buy and sell carbon credits to ensure year over year they can meet carbon accounting goals 1st and position themselves to be a provider of carbon to the market they believe is coming, in partnership with their farmers.
+
+Farmer Jane provides produce to Acme ag.  She would like to add carbon credit sales to her list of produce.  In addition to Acme there are also several other marketplaces forming and Jane wants to be able to find the best possible price for her carbon with the least amount of work.
+
+A start up carbon market (Market1) approaches her with an easy monitoring and verification onboarding scheme and upfront payment in exchange for her carbon.  She accepts because she needs the cash.  Market1 is running as a smart contract in an Ethereum state channel.  
+
+Acme ag partners with a second marketplace (Market2) which has a higher price, and a different and more rigorous verification threshold. Jane second guesses her decision and registers on Market2 as well as Market1.
+
+The first round of carbon credits have already been issued. The transition of carbon from Market1 to Market2 requires running additional data collection and uses a different quantification algorithm that is considered by many to be more rigorous and has less uncertainty.  Market2 is running on a cosmosSDK chain.  
+
+Acme ag agrees to underwrite the cost of additional verification.   
+
+Acme ag does not want Farmer Jane's geolocation to be public and desires that this data be kept private and only available to approved monitors and verifiers in the system because they are worried about a competing company poaching their high preforming farmers
 
 #### User Needs
+Acme Ag demands that there be no counter carbon claims on the farm in question
+Acme Ag demands ability to audit and hold seller liable for double counting
+Farmer Jane requires access to multiple markets
+Farmer Jane requires monitoring and verification costs to be shouldered by purchaser
+Market1: Need to be paid back for the carbon they prepurchased
+Market2 Needs to be able to burn or represent the movement of that carbon to market2 Needs to be able to represent the provenance of the carbon in question (both geolocation and the fact it moves from a different registry)
+Market2 Needs to be able to update the claim with the new methodology but maintain consistency in the time period and geolocation of the claim
 
 #### Unique Challenges
+
+Carbon markets have four major accounting concerns:
+
+Additionality: “Who has the right to account for the carbon mitigation or sequestration” in some markets you must not only prove that the carbon was not emitted, but also that if you were not paid it WOULD have been emitted (I call this the carbon hostage approach to additionality).  Multiple parties must be able to claim responsibility accurately and with integrity so that the right party(ies) has(ve) the right to claim the carbon.
+
+Permanence: “How long will this carbon be sequestered, or stored?”  In living carbon claims permanence is variable dependent on conditions such as droughts (which force emissions) rainfall (which increases sequestration) that are beyond human control, as well as activities (land use practices) which are within human control. This creates complexity. It is essential to have global carbon buffer pools to cover permanence issues from both human causes and natural caused reduction of carbon stocks. This requires some fungibility.  
+
+Leakage: “Does this change create a carbon emission increase somewhere else”. For instance does forest conservation in one place cause a forest somewhere else to be cut down? Ability to link credit claims to a larger system of carbon accounting (transport, etc) are important.  Ability for counter claims are important.  
+
+Uncertainty: “How sure are we about the monitoring and quantification methodology that is under the hood of the carbon credit in question”.  There is always some uncertainty as this is a probabilistic science, especially with living carbon credits.  Metadata associated with the evidence backing a credit, the specific threshold of “verification”, and clear statements of uncertainty are required.  
 
 #### Distinctive Requirements
 
@@ -388,6 +437,87 @@ Projects are invited to describe their use-case in the format of a short User St
 #### Unique Challenges
 
 #### Distinctive Requirements
+
+### 4.7 Media IP & Distribution
+
+#### Context
+
+#### User Needs
+
+#### Unique Challenges
+
+#### Distinctive Requirements
+
+### 4.8 Resellable Theatre Tickets
+
+#### Context
+As COVID restrictions are lessened in their area, Ellenor and Vicki have decided that they want to try to go to their town theatre’s reopening screening of The Phantom of the Opera. After reviewing the theatre’s COVID plan they decide that they are comfortable giving the experience a shot so Ellenor goes to Nearest Town Theatre’s web page to purchase two tickets for the upcoming play. 
+
+Ellenor goes to Nearest Town Theatre’s web page, clicks the “Purchase” button and is taken to the ticketing agency, Nearest Town Ticketing Agency’s, web page who have been given the rights to sell tickets for Nearest Town Theatre along with a set of rules specified by the theatre which detail the COVID seating requirements. Due to these COVID restrictions, Ellenor finds she must reserve specific seats in the theatre to allow for proper spacing of groups. She selects two seats on the aisle about midway back in the theatre and clicks “Complete Purchase” where she is taken to a page requesting payment. 
+
+Here Ellenor is greeted by a page which allows her to select any of the payment options that Nearest Town Ticketing Agency has chosen to accept. Once payment information is submitted, the payment is swapped with the tickets so that in one atomic exchange Nearest Town Theatre receives the payment in question, Ellenor receives the tickets and Nearest Town Ticketing Agency receives their cut of the payment as specified in their contract with Nearest Town Theatre.
+
+As the date of the show approaches, Ellenor has a family emergency come up which is going to prevent her from attending. Ellenor gives Vicki her ticket, as Vicki has previously paid Ellenor in cash for hers, but as money is tight Ellenor tells Vicki that she would, ideally, like to sell her ticket to someone that Vicki would want to go with in her stead. Ellenor creates an offer which gives Vicki the ability to initiate the sale of the ticket to a third party so that when Vicki finds someone that agrees to the price she can send the ticket offer to the found third party. When creating the offer, Ellenor is notified when she selected “Resale” on the ticket that Nearest Town Theatre has restricted the resale price to only allow for resale at the face value sale price of the ticket or below. 
+
+Vicki asks her friend, Stephen, if he is amenable to going and he agrees to pay Ellenor the face value of the ticket with an addendum that he would only want to go if they can sit closer to the stage as he saw that Lin-Manual Miranda was making a cameo appearance and wants to make sure to have a good view. Vicki agrees to this seat change and they both look up the current seat map for the show, deciding on two seats in the second row. As Stephen receiving the ticket is the current limiting factor to show attendance, Vicki first modifies the offer Ellenor gave her and adds a condition specifying that, as part of the third party sale of the ticket a seat change needs to occur. After which Vicki sends the new offer to Stephen, who also modifies the offer, adding a requirement for the purchase that his seat is also changed. 
+
+Ellenor is notified of the proposed changes to the offer and as changing seats does not affect Ellenor’s desire to sell the ticket, she approves the modified offer and this triggers the beginning of the resolution process. First, both Vicki and Stephen are notified that the changes to the offer have been accepted and they are prompted to select the seats which they would like to change to. After they both select their desired seats, Nearest Town Ticketing Agency provides an assurance that the specified seats will be held pending the completion of the ticket sale to Stephen. Once this is complete, Stephen is asked to submit payment to Ellenor in any of the ways she has advertised in the offer. He selects the one he is most comfortable with and submits the payment to be held and released to Ellenor in an atomic swap for the ticket. Once both the seating changes and Stephen’s payment has been submitted, all three items, the ticket to Stephen, the payment to Ellenor and the two seat changes, are exchanged simultaneously. 
+
+On the day of the show, Vicki and Stephen decide on a last minute whim to try and change their seats again. However, this time when they go to request the change they are notified that seats cannot be changed within 24 hours of the show. Despite this they both arrive at the play that night, present their tickets at the ticketing counter and enjoy the play. 
+
+#### User Needs
+User needs here are broken down for each of the three users presented in the above story: Ellenor, Vicki and Stephen. 
+
+__Ellenor__
+* Mechanism for submitting payment digitally
+* Digital storage and display mechanism to store the received tickets
+* Mechanism to transfer the tickets to a third party without payment for the ticket
+* Mechanism to transfer the tickets to a third party with payment for the ticket
+* Ability to give/sell an option to another party
+* As well as revoke said option
+* Digital Ticket received must specify assigned seat in a human readable format for use at the venue
+
+__Vicki__
+* Implied allowance (through initial purchase) for Ellenor to hold her ticket
+* Digital Wallet with which to receive the ticket from Ellenor
+* Ability to hold the offer given by Ellenor
+* Ability to share offer with third party
+* Ability to present the ticket at the play
+* Ability to give the right to change her seat to Stephen
+
+__Stephen__
+* Digital Wallet to receive the initial “ticket offer” from Vicki
+* Ability to create a counter-offer with different conditions from the original
+* Ability to provide payment in response to fulfill “ticket offer”
+* Ability to receive the ticket in his digital wallet
+* Ability to present the ticket at the play
+
+#### Unique Challenges
+Here the primary unique challenge, outside of the expectation of all parties being onboarded to and using some form of digital wallet (or other digital storage) which can hold the specified data objects, is the handling of the transfer of the play ticket from Ellenor to Stephen with Vicki acting as an intermediary for the transaction. There are a few interesting things happening in this story. 
+* First Ellenor providing an offer which allows Vicki to act as an intermediary with Ellenor never needing to know who exactly the ticket is being resold to
+* Next Vicki being able to modify the offer to add a condition that she must be allowed to complete a change in seat for the purchase to go through. Here Vicki is a third party to the actual sale of the ticket adding a sale requirement to the offer. 
+* Finally Stephen being able to modify the offer in the same way as Vicki
+Once the offer modifications happen it then must be ensured that Vicki and Stephen get to choose their seat change after the final offer is accepted by Ellenor and the subsequent atomic transfer of all parties needs: Ellenor gets her money, Stephen gets his ticket and both Vicki and Stephen get their new seat. 
+
+__Metadata Requirements:__ Mintable, Burnable, Ownable, Transferable, Lockable, Mutable, Conditional 
+
+#### Distinctive Requirements
+* Delegate the right to initiate a contract handshake to another party
+* Resolve an outstanding contract between two entities that have not interacted prior to the attempted contract resolution
+* Atomic transfers that satisfy the simultaneous conditions of multiple parties
+* Utilization of third parties (though maybe limited to involved third parties, e.g. the ticketing agency) to fulfill/verify conditions placed on a contract
+
+#### NFT Metadata Layer Model
+| Layer |  |
+|-----|------|
+| **8. Operationalization** | At ticketing, Vicki and Stephen each present a QR code representing their ticket to a scanner in the theatre lobby. Lights illuminate a path to their seats and the tickets are recorded as used. |
+| **7. Assertions** | TicketAdvisor claims performances through the month of December 15 will have a cameo by Lin-Manual Miranda. [??? is this part of this scenario or is there a better assertion] | 
+| **6. Extensions &    Restrictions to Rights** | Seats changed to B16 and B18. Seat changes after December 14 at 8PM are no longer allowed. | 
+| **5. Instantiation** | Two tickets to see Phantom of the Opera at 8 PM on December 15, 2020, seats D24 and D26, respectively. (Two separate tokens) |  
+| **4. Embodied Rights** | Theatre Ticket: Right to attend and be seated at a particular performance, at a particular venue, at a particular time. Seats are changeable if alternative seats are available. |
+| **3. Token Logic** | Resellable Bearer token | 
+| **2. Interchain** | Atomic transactions guarantee all transfers happen simultaneously: payment to Ellenor, transfer of ticket to Stephen, and change of both seats | 
+| **1. State Machine** | Stephen pays Ellenor via bitcoin. Ticketing is on Ticket Chain, Payments are on MoneyChain (which has fiat onramps / offramps) |
 
 ## 5. References
 
